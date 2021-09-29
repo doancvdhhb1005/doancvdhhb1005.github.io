@@ -1,0 +1,26 @@
+html,body{
+    padding:0;margin:0;
+}
+.navbar{
+    background-color: #34495e;
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    font-family: soe;
+    /* background: #bdc3c7; */
+    cursor: pointer;
+}
+
+a.options:hover {color: #3498db;}
+
+.options {
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+i.options {
+    padding-left: 10px;
+}
