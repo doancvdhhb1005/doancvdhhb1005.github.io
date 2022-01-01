@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script src="https://vitalets.github.io/angular-xeditable/dist/js/xeditable.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="http://vitalets.github.io/angular-xeditable/dist/css/xeditable.css"> -->
+    <script src="https://code.angularjs.org/1.8.2/angular-route.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <script src="assets/js/todo.js"></script>
+    <script src="assets/js/services/todoMethods.js"></script>
+ 
+  </head>
+
+  <body ng-app="app" ng-controller="mainController">
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3 text-center">Xin chào bạn có <span class="badge badge-info">{{todos.length}}</span> Note</h1>
+
+            <p class="lead text-center">Một ngày mới đã đến và bạn hãy kiểm tra lại những mục tiêu mà bạn còn dang dở.</p>
+           
+            <hr class="my-2">
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-2">
+                <div ng-repeat="todo in todos">
+                    
+                    <input ng-change="updateWork(todo)" type="checkbox" ng-model="todo.isDone">
+                   
+                    <a href class="fa fa-edit" editable-text="todo.text" onaftersave="updateWork(todo)"></a>
+                    <span ng-class="{done:todo.isDone}"> {{todo.text}}</span>
+                </div>
+                <h5 class="text-center" ng-show="loading"><i class="fas fa-circle-notch fa-spin"></i></h5>
+            </div>
+        </div>
+        <form class="col-sm-6 offset-sm-3 pt-3">
+            <input ng-model="text" type="text" class="form-control input-lg" placeholder="Thêm việc bạn cần làm">
+           <div class="text-center pt-3"> <input ng-disabled="!text" type="submit" class="btn btn-info" value="Thêm ngay và luôn" ng-click="addWork()"></div>
+        </form>
+    </div>
+    
+  </body>
+  <div class="container">
+    <small class="text info">@Một trang web của <a target="_blank" href="https://www.facebook.com/profile.php?id=100028264293465">Geranyl Doan <i class="fa fa-heart text-danger"></i></a></small>
+  </div>
+</html>
